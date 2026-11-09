@@ -375,22 +375,45 @@ para("Merch logic follows the rules: the beaded wristpiece is the entry-price it
 
 # ================================================================ 5
 h1("5", "Competition and SWOT")
-para("Only non-collaborators are treated as competitors. Mr Fallback, Smokie Cee, Tungi and King Avo "
-     "are reach assets.")
+para("The competitor analysis is split in two tiers. Tier 1 is the real contest: Ugandan artists making "
+     "melodic Afro-pop / rap into the same Kampala audience in the same window. Tier 2 artists are not "
+     "sound-alikes — they are the incumbents holding the commercial lanes Baranga needs to enter.")
+h2("Tier 1 — peer artists making music like Baranga")
+table(["Peer", "The lane they occupy", "Their strength", "Their weakness", "How Baranga exploits it"],
+      [["Senté", "Alté / hip-hop / R&B crossover",
+        "Named by Deeds Magazine as at the fore of East African alt-R&B; Spotify Fresh Finds Africa "
+        "(2024); two UGHHA nominations for “DND”",
+        "Slow release cadence, niche live footprint; alté framing limits radio reach",
+        "Out-release him — five drops in twelve weeks, with harder Afro-pop hooks"],
+       ["Pryce Teeba", "Hip-hop / Afrobeats",
+        "UG Hip Hop Awards Male Rapper of the Year (2025); deep Luganda catalogue and mixtape series",
+        "Rap-first presentation and long project cycles; little Afro-pop crossover",
+        "Take the crossover lane: sung hooks and playlist-ready singles where he stays hip-hop"],
+       ["Tungi", "Afrobeat / urban",
+        "Genre-fluid singles, steady features; “Siteesa” with producer Mike 1ne",
+        "Not a rival on paper, but he takes the same feature and playlist slots",
+        "Borrow his base before competing: joint release and shared billing first"],
+       ["Quency, ECEE, Tai Dai", "Hip-hop · rap · alté new wave",
+        "Independent acts building audiences on TikTok and Audiomack",
+        "Thin marketing budgets and inconsistent release discipline",
+        "Out-spend and out-pace them: in-house production plus a twelve-week content drumbeat"]],
+      [Inches(0.95), Inches(1.25), Inches(1.6), Inches(1.45), Inches(1.3)], font=8.5)
+h2("Tier 2 — incumbents holding the commercial lanes")
 table(["Competitor", "Strength", "Weakness", "How Baranga wins"],
-      [["Joshua Baraka", "Massive regional hits; strong international playlist presence",
+      [["Joshua Baraka", "Regional hits, major playlists, MOBO nomination, arena-scale live draw "
+        "(B’RAKA LAND)",
         "High-gloss pop production; little street-level narrative",
-        "Trench-level detail and rap credibility in a lane he does not occupy"],
+        "Trench detail and rap credibility in a lane he does not occupy"],
        ["Azawi", "Owns commercial radio rotation and corporate sponsorships",
         "Radio-pop formula; weak direct-to-fan ownership",
         "An owned fan channel, plus features-driven virality he cannot block"],
        ["Fik Fameica", "Established rap heavyweight; huge live draw",
         "Brand built on party anthems; limited introspective writing",
         "Lyric-led storytelling and album craft that outlasts a club record"],
-       ["Senté", "Critically respected alté / hip-hop crossover; playlist support",
-        "Small release volume; niche live footprint",
-        "Higher release cadence plus a harder Afro-pop radio hook"]],
-      [Inches(1.15), Inches(1.85), Inches(1.75), Inches(1.8)])
+       ["Elijah Kitaka", "Smooth vocal delivery, strong R&B / Afro-pop crossover appeal",
+        "Inconsistent project schedule; light Luganda folk narrative",
+        "A disciplined twelve-week release ritual he does not run"]],
+      [Inches(1.15), Inches(1.9), Inches(1.75), Inches(1.75)], font=8.8)
 h2("Internal SWOT")
 table(["", "Factors"],
       [["Strengths", "290,000+ streams on “Badman”; Ugandan Top 100 entry; two UG Hip Hop Awards "
@@ -404,9 +427,9 @@ table(["", "Factors"],
       [Inches(1.35), Inches(5.2)])
 h2("Exploitation strategy")
 bullet("the owned channel is live in week 3, before any paid media, so attention has somewhere to land.")
-bullet("the remix and the regional feature turn collaborators’ audiences into discovery, not competition.")
-bullet("the beaded wristpiece gives a single object that appears in every visual and every photo.")
-bullet("in-house production means the campaign can answer a weak week with new music in days.")
+bullet("the remix and regional feature convert peers’ audiences into discovery rather than losing them.")
+bullet("the beaded wristpiece gives one object that appears in every visual and in every photo a fan takes.")
+bullet("in-house production means a weak week can be answered with new music in days, not months.")
 
 # ================================================================ 6
 h1("6", "Strategy and positioning (Al Ries & Jack Trout)")

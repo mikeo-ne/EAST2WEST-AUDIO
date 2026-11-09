@@ -224,6 +224,8 @@ def table(s, x, y, w, col_w, rows, head_h=Inches(0.42), row_h=Inches(0.46),
     def row_need(cells, sz, bold_cols):
         need = 0.0
         for i, cell in enumerate(cells):
+            if isinstance(cell, (list, tuple)):
+                cell = " ".join(t for t, _ in cell)
             lines_w = Emu(widths[i] - Inches(0.26)).pt
             hh, _ = para_height_pt(cell, sz, (i == 0 and bold_cols), lines_w, 1.12)
             need = max(need, hh)
@@ -247,10 +249,21 @@ def table(s, x, y, w, col_w, rows, head_h=Inches(0.42), row_h=Inches(0.46),
         rect(s, x, cy + h, w, Pt(0.6), fill=LINE)
         cx = x
         for i, cell in enumerate(row):
-            text(s, cx + Inches(0.13), cy, widths[i] - Inches(0.26), h, cell, size=size,
-                 color=WHITE if (i == 0 and bold_first_col) else MUTED,
-                 bold=(i == 0 and bold_first_col), anchor=MSO_ANCHOR.MIDDLE, leading=1.12,
-                 align=(align_cols or {}).get(i, PP_ALIGN.LEFT))
+            if isinstance(cell, (list, tuple)):
+                # styled cell: each entry becomes its own paragraph (real line break)
+                paras = []
+                for j, (txt, opt) in enumerate(cell):
+                    o = dict(opt)
+                    o.setdefault("color", WHITE if i == 0 else MUTED)
+                    paras.append([(txt, o)])
+                text(s, cx + Inches(0.13), cy, widths[i] - Inches(0.26), h, paras,
+                     anchor=MSO_ANCHOR.MIDDLE, leading=1.12,
+                     align=(align_cols or {}).get(i, PP_ALIGN.LEFT))
+            else:
+                text(s, cx + Inches(0.13), cy, widths[i] - Inches(0.26), h, cell, size=size,
+                     color=WHITE if (i == 0 and bold_first_col) else MUTED,
+                     bold=(i == 0 and bold_first_col), anchor=MSO_ANCHOR.MIDDLE, leading=1.12,
+                     align=(align_cols or {}).get(i, PP_ALIGN.LEFT))
             cx += widths[i]
         cy += h
     if max_bottom is not None and cy > max_bottom:

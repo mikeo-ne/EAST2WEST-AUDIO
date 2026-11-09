@@ -294,43 +294,100 @@ text(s, i(1.1), i(6.05), i(11.2), i(0.62),
         {"size": 10.5, "color": WHITE})]], anchor=MSO_ANCHOR.MIDDLE, leading=1.2)
 footer(s, N)
 
-# ============================================================ 9 · COMPETITORS
+# ============================================================ 9 · COMPETITORS (PART A)
 s = slide(); N += 1
-eyebrow(s, "Section 6 · Competition and SWOT")
-headline(s, [[("Four rivals, four different weaknesses", {"color": WHITE})]], size=30)
-text(s, i(0.85), i(2.02), i(11.4), i(0.4),
-     "Only non-collaborators are listed as competitors. Mr Fallback, Smokie Cee, Tungi and King Avo are "
-     "reach assets, not rivals.", size=11.5, color=MUTED)
+eyebrow(s, "Section 6 · Competition — the closest sound-alikes first")
+headline(s, [[("Peers, then challengers", {"color": WHITE})]], size=30)
+text(s, i(0.85), i(2.02), i(11.4), i(0.3),
+     "Tier 1 is the real contest: melodic Afro-pop / rap released into the same Kampala window.",
+     size=11.2, color=MUTED)
 
-rows = [["Competitor", "Their strength", "Their weakness", "How Baranga wins"],
-        ["Joshua Baraka", "Massive regional hits; strong international playlist presence",
-         "High-gloss pop production; little street-level narrative",
-         "Trench-level detail and rap credibility in a lane he does not occupy"],
-        ["Azawi", "Owns commercial radio rotation and corporate sponsorships",
+tier1 = [
+    ("Senté", "Alté / hip-hop / R&B",
+     "Deeds calls him at the fore of East African alt-R&B; Spotify Fresh Finds Africa (2024)",
+     "Slow release cadence, niche live footprint, alté framing limits radio",
+     "Out-release him: five drops in twelve weeks, with harder Afro-pop hooks",
+     TEAL),
+    ("Pryce Teeba", "Hip-hop / Afrobeats",
+     "UGHHA Male Rapper of the Year (2025); deep Luganda catalogue and mixtapes",
+     "Rap-first presentation and long project cycles; little crossover",
+     "Take the crossover lane: sung hooks, playlist-ready singles",
+     GOLD),
+    ("Tungi", "Afrobeat / urban",
+     "Genre-fluid singles, steady features; “Siteesa” with producer Mike 1ne",
+     "A collaborator — but he takes the same feature and playlist slots",
+     "Borrow his base first: joint release, then compete for the slot",
+     AMBER),
+    ("Quency · ECEE · Tai Dai", "Hip-hop · rap · alté",
+     "Independent new-wave acts building on TikTok and Audiomack",
+     "Thin marketing budgets, inconsistent release discipline",
+     "Out-spend them: in-house production and a 12-week content drumbeat",
+     TERRA),
+]
+for k, (name, lane, strength, weakness, exploit, col) in enumerate(tier1):
+    y = i(2.56) + i(k * 1.04)
+    rect(s, i(0.85), y, i(11.63), i(0.96), fill=COAL if k % 2 == 0 else COAL2, line=LINE, lw=0.75,
+         shape=MSO_SHAPE.ROUNDED_RECTANGLE, radius=0.08)
+    rect(s, i(0.85), y, Pt(3.2), i(0.96), fill=col)
+    text(s, i(1.08), y + i(0.14), i(2.25), i(0.3), name, size=12, color=WHITE, bold=True, font=HEAD)
+    text(s, i(1.08), y + i(0.46), i(2.25), i(0.4), lane, size=8.2, color=col, bold=True, caps=True,
+         leading=1.08)
+    text(s, i(3.55), y + i(0.12), i(2.85), i(0.74), strength, size=8.9, color=MUTED, leading=1.16)
+    text(s, i(6.62), y + i(0.12), i(2.6), i(0.74), weakness, size=8.9, color=MUTED, leading=1.16)
+    text(s, i(9.38), y + i(0.12), i(2.95), i(0.74), exploit, size=8.9, color=WHITE, leading=1.16)
+for label, lx, lw in [("Their strength", 3.55, 2.8), ("Their weakness", 6.62, 2.5),
+                      ("How Baranga exploits it", 9.38, 3.0)]:
+    text(s, i(lx), i(2.28), i(lw), i(0.2), label, size=7.8, color=GOLD, bold=True, caps=True)
+footer(s, N)
+
+# ============================================================ 9b · COMPETITORS (PART B)
+s = slide(); N += 1
+eyebrow(s, "Section 6 · Competition — the commercial lanes above him")
+headline(s, [[("Then the artists holding the doors he needs", {"color": WHITE})]], size=30)
+text(s, i(0.85), i(2.02), i(11.4), i(0.35),
+     "Not sound-alikes — incumbents. Every one of them is beatable on a specific, named weakness.",
+     size=11.2, color=MUTED)
+
+rows = [["Competitor", "Strength", "Weakness", "How Baranga wins"],
+        [[("Joshua Baraka", {"size": 9.8, "bold": True, "color": WHITE}),
+          ("International Afro-pop", {"size": 8.0, "color": GOLD})],
+         "Regional hits, major playlists, MOBO-nominated, arena-scale live draw (B’RAKA LAND)",
+         "High-gloss production; little street-level detail",
+         "Trench detail and rap credibility in a lane he does not occupy"],
+        [[("Azawi", {"size": 9.8, "bold": True, "color": WHITE}),
+          ("Commercial Afro-pop", {"size": 8.0, "color": GOLD})],
+         "Owns radio rotation and corporate sponsorship",
          "Radio-pop formula; weak direct-to-fan ownership",
-         "An owned fan channel and features-driven virality he cannot block"],
-        ["Fik Fameica", "Established rap heavyweight; huge live draw",
-         "Brand built on party anthems; limited introspective writing",
-         "Lyric-led storytelling and album craft that ages better than a club record"],
-        ["Senté", "Critically respected alté / hip-hop crossover; playlist support",
-         "Small release volume; niche live footprint",
-         "Higher release cadence plus a harder Afro-pop radio hook"]]
-table(s, i(0.85), i(2.52), i(11.63), [1.7, 3.1, 3.1, 3.5], rows,
-      row_h=[i(0.52), i(0.56), i(0.52), i(0.52)], size=10.0, head_size=9.0)
+         "An owned channel plus features-driven virality he cannot block"],
+        [[("Fik Fameica", {"size": 9.8, "bold": True, "color": WHITE}),
+          ("Rap heavyweight", {"size": 8.0, "color": GOLD})],
+         "Decade-long rap brand and a huge live draw",
+         "Party-anthem brand; limited introspective writing",
+         "Lyric-led album craft that outlasts a club record"],
+        [[("Elijah Kitaka", {"size": 9.8, "bold": True, "color": WHITE}),
+          ("R&B / Afro-pop", {"size": 8.0, "color": GOLD})],
+         "Smooth vocal crossover and strong corporate bookings",
+         "Inconsistent release schedule; light Luganda folk narrative",
+         "A disciplined twelve-week release ritual he does not run"]]
+table(s, i(0.85), i(2.42), i(11.63), [2.35, 3.25, 2.9, 3.0], rows,
+      gap_pt=7, size=9.2, head_size=8.4, row_h=i(0.54), max_bottom=i(5.14))
 
 # SWOT strip
-text(s, i(0.85), i(5.30), i(11.4), i(0.3), "Baranga’s internal SWOT", size=12.5, color=GOLD, bold=True)
-sw = [("S", "Strengths", ["290K+ streams and Top 100 entry", "Two award nominations", "In-house production"], TEAL),
-      ("W", "Weaknesses", ["Shallow catalogue depth", "Kampala-concentrated awareness", "Thin live infrastructure"], TERRA),
+text(s, i(0.85), i(5.26), i(11.4), i(0.3), "Baranga’s internal SWOT, read against those two tiers",
+     size=12, color=GOLD, bold=True)
+sw = [("S", "Strengths", ["290K+ streams · Top 100 entry", "Two UGHHA nominations", "In-house production"], TEAL),
+      ("W", "Weaknesses", ["Shallow catalogue depth", "Kampala-concentrated awareness", "No owned fan data"], TERRA),
       ("O", "Opportunities", ["Award-season attention", "Remix and feature culture", "Brand partnership budget"], GOLD),
       ("T", "Threats", ["Playlist dependency", "Rap-genre pigeonholing", "Rival release volume"], MUTED)]
 for k, (letter, title_, items, col) in enumerate(sw):
     x = i(0.85) + i(k * 2.96)
-    rect(s, x, i(5.66), i(2.74), i(1.02), fill=COAL, line=LINE, lw=0.75,
+    rect(s, x, i(5.62), i(2.74), i(1.10), fill=COAL, line=LINE, lw=0.75,
          shape=MSO_SHAPE.ROUNDED_RECTANGLE, radius=0.08)
-    text(s, x + i(0.2), i(5.72), i(0.4), i(0.3), letter, size=15, color=col, bold=True, font=HEAD)
-    text(s, x + i(0.56), i(5.76), i(2.1), i(0.26), title_, size=10, color=WHITE, bold=True, caps=True)
-    text(s, x + i(0.2), i(6.06), i(2.4), i(0.6), " · ".join(items), size=8.8, color=MUTED, leading=1.18)
+    text(s, x + i(0.2), i(5.70), i(0.4), i(0.3), letter, size=15, color=col, bold=True, font=HEAD)
+    text(s, x + i(0.56), i(5.74), i(2.1), i(0.26), title_, size=10, color=WHITE, bold=True, caps=True)
+    for j, it in enumerate(items):
+        rect(s, x + i(0.22), i(6.10) + i(j * 0.20), Pt(3.5), Pt(3.5), fill=col)
+        text(s, x + i(0.34), i(6.05) + i(j * 0.20), i(2.32), i(0.22), it, size=8.2, color=MUTED)
 footer(s, N)
 
 # ============================================================ 10 · LADDER
